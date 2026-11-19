@@ -13,6 +13,13 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Matheus: revisa e agenda os rascunhos às segundas; responde comentários.
 - Escritório: tarefas de código pedidas em `inbox/`.
 
+## Marca
+- Marca: Sem Atalhos ("dev sem atalhos"). Produto: Dev Raiz. Domínio: sematalhos.dev.br.
+- Página de vendas: `docs/index.html`, publicada pelo GitHub Pages (main, /docs) em
+  https://sematalhos.dev.br. Capa do produto: `docs/img/capa-kiwify.png`.
+- Decisões da página: cupom DEVRAIZ (R$ 29) só nos primeiros 7 dias; sem suporte;
+  sem seção "sobre o autor".
+
 ## Stack
 - Venda e entrega: Kiwify.
 - Publicação: Buffer gratuito (LinkedIn + Instagram profissional + 1 canal livre).
@@ -42,5 +49,9 @@ em até 30 dias, com o mínimo de trabalho manual.
 - 2026-11-19: repositório criado; estrutura inicial e primeiro desafio (desafio-01) enviados.
 - 2026-11-19: banco de pautas criado (26 desafios, 16 dicas, 6 posts de venda);
   texto da página de vendas pronto num doc do claude.ai para revisão.
-- Pendente (Matheus): Kiwify, Instagram profissional, Buffer + conector, domínio.
+- 2026-11-19: página de vendas no ar pelo GitHub Pages; DNS de sematalhos.dev.br
+  validado (registro.br).
+- Pendente (Matheus): HTTPS no GitHub Pages, Kiwify (link do checkout para os
+  botões da página), e-mail contato@sematalhos.dev.br no Zoho, Instagram
+  profissional, Buffer + conector.
 - Pendente (escritório): `inbox/2026-11-19-conferir-desafios-csharp.md`.
