@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; background: #0E1116; color: #E6EDF3;
+         font-family: 'Inter', sans-serif; display: flex; flex-direction: column;
+         padding: 88px 80px 72px; }
+  .pill { align-self: flex-start; font-size: 26px; font-weight: 600; letter-spacing: 0.5px;
+          color: #2DD4BF; border: 2px solid #2DD4BF; border-radius: 999px; padding: 10px 26px; }
+  h1 { font-family: 'Inter Display', 'Inter', sans-serif; font-size: 82px; font-weight: 800;
+       line-height: 1.05; margin-top: 40px; letter-spacing: -1.5px; }
+  .sub { font-size: 34px; color: #8B949E; margin-top: 18px; }
+  .window { margin-top: 56px; background: #161B22; border: 2px solid #262C36; border-radius: 22px; overflow: hidden; }
+  .bar { display: flex; gap: 12px; padding: 22px 28px; border-bottom: 2px solid #262C36; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; }
+  pre { font-family: 'DejaVu Sans Mono', monospace; font-size: 31px; line-height: 1.75;
+        padding: 30px 34px 34px; color: #E6EDF3; }
+  .k { color: #C792EA; } .t { color: #FFCB6B; } .n { color: #F78C6C; } .m { color: #82AAFF; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; margin-bottom: 40px; }
+  .opt { border: 2px solid #30363D; border-radius: 18px; padding: 26px 30px; font-size: 40px; font-weight: 600; }
+  .opt span { color: #2DD4BF; margin-right: 14px; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center;
+          font-size: 25px; color: #8B949E; border-top: 2px solid #262C36; padding-top: 28px; }
+  .foot b { color: #E6EDF3; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="pill">DESAFIO DA SEMANA #1</div>
+  <h1>O que esse código imprime?</h1>
+  <p class="sub">Sem rodar. Sem perguntar pra IA.</p>
+
+  <div class="window">
+    <div class="bar">
+      <div class="dot" style="background:#FF5F57"></div>
+      <div class="dot" style="background:#FEBC2E"></div>
+      <div class="dot" style="background:#28C840"></div>
+    </div>
+<pre><span class="k">var</span> numeros = <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">int</span>&gt; { <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span> };
+<span class="k">var</span> pares = numeros.<span class="m">Where</span>(n =&gt; n % <span class="n">2</span> == <span class="n">0</span>);
+
+numeros.<span class="m">Add</span>(<span class="n">4</span>);
+
+<span class="t">Console</span>.<span class="m">WriteLine</span>(pares.<span class="m">Count</span>());</pre>
+  </div>
+
+  <div class="opts">
+    <div class="opt"><span>A</span>1</div>
+    <div class="opt"><span>B</span>2</div>
+    <div class="opt"><span>C</span>3</div>
+    <div class="opt"><span>D</span>Exceção</div>
+  </div>
+
+  <div class="foot">
+    <div>Comente só a letra · resposta amanhã</div>
+    <div><b>Matheus Machado</b> · Dev .NET</div>
+  </div>
+</body>
+</html>
