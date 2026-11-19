@@ -1,4 +1,4 @@
-# Projeto: lançamento do pacote .NET (R$ 39)
+# Projeto: lançamento do pacote .NET (R$ 47)
 
 Memória compartilhada entre o Claude do claude.ai e o escritório (Claude Code no VS Code).
 Quem mudar uma decisão atualiza este arquivo no mesmo commit.
@@ -17,7 +17,7 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Marca: Sem Atalhos ("dev sem atalhos"). Produto: Dev Raiz. Domínio: sematalhos.dev.br.
 - Página de vendas: `docs/index.html`, publicada pelo GitHub Pages (main, /docs) em
   https://sematalhos.dev.br. Capa do produto: `docs/img/capa-kiwify.png`.
-- Decisões da página: cupom DEVRAIZ (R$ 29) só nos primeiros 7 dias; sem suporte;
+- Decisões da página: preço R$ 47; cupom DEVRAIZ (R$ 37) só nos primeiros 7 dias; sem suporte;
   sem seção "sobre o autor".
 
 ## Stack
@@ -51,7 +51,10 @@ em até 30 dias, com o mínimo de trabalho manual.
   texto da página de vendas pronto num doc do claude.ai para revisão.
 - 2026-11-19: página de vendas no ar pelo GitHub Pages; DNS de sematalhos.dev.br
   validado (registro.br).
-- Pendente (Matheus): HTTPS no GitHub Pages, Kiwify (link do checkout para os
-  botões da página), e-mail contato@sematalhos.dev.br no Zoho, Instagram
-  profissional, Buffer + conector.
+- 2026-11-19: HTTPS ativo. Kiwify: produto criado (R$ 47), área de membros com
+  2 módulos ("Os 5 guias" com o PDF; "Projetos e exercícios" com o .zip), ambos
+  publicados. Botões da página apontam para o checkout https://pay.kiwify.com.br/ZD70Zmh.
+- Pendente (Matheus): verificação de identidade na Kiwify, compra de teste,
+  cupom DEVRAIZ no dia do lançamento, e-mail contato@sematalhos.dev.br no Zoho,
+  Instagram profissional, Buffer + conector.
 - Pendente (escritório): `inbox/2026-11-19-conferir-desafios-csharp.md`.
