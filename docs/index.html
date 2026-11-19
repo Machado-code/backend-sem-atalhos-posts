@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dev Raiz: 5 guias para programar sem depender de IA</title>
+<meta name="description" content="5 guias práticos de C#/.NET e SQL para treinar o que nenhuma IA aprende por você: depurar, montar uma API, escrever SQL, entender HTTP e resolver lógica de entrevista.">
+<meta property="og:title" content="Dev Raiz: 5 guias para programar sem depender de IA">
+<meta property="og:description" content="A IA escreve o código. Você sabe dizer se ele está certo?">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://sematalhos.dev.br/img/capa-kiwify.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316233F'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='8' fill='none' stroke='%23D7263D' stroke-width='3' transform='rotate(-8 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #F5F7F6;
+    --grade: #DDE6EE;
+    --tinta: #16233F;
+    --tinta-suave: #4A5876;
+    --caneta: #D7263D;
+    --marca-texto: #FFE066;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    --serif: "Source Serif 4", Georgia, serif;
+    --medida: 40rem;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: var(--papel);
+    background-image:
+      linear-gradient(var(--grade) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grade) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--tinta);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--caneta); outline-offset: 3px; }
+
+  .pagina { max-width: 64rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  .topo { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .marca { font-family: var(--mono); font-weight: 800; font-size: 1rem; text-decoration: none; }
+  .marca span { color: var(--caneta); }
+  .topo a.compra-curta { font-family: var(--mono); font-size: 0.875rem; font-weight: 700; }
+
+  h1, h2, h3 { font-family: var(--mono); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(1.9rem, 5vw, 3rem); max-width: 20ch; margin: 3rem 0 1.25rem; }
+  h2 { font-size: clamp(1.4rem, 3.2vw, 2rem); margin-bottom: 1rem; }
+  h3 { font-size: 1.05rem; font-weight: 700; }
+  p + p { margin-top: 0.9rem; }
+  .sub { font-size: 1.25rem; max-width: var(--medida); color: var(--tinta-suave); }
+
+  .botao {
+    display: inline-block; margin-top: 1.75rem;
+    background: var(--tinta); color: var(--papel);
+    font-family: var(--mono); font-weight: 700; font-size: 1rem;
+    padding: 0.95rem 1.4rem; border-radius: 4px; text-decoration: none;
+  }
+  .botao:hover { background: #22345C; }
+
+  .heroi { display: grid; gap: 2.5rem; align-items: end; }
+  .folha {
+    background: #FFFFFF; border: 1.5px solid var(--tinta); border-radius: 6px;
+    padding: 1.25rem 1.25rem 1rem; max-width: 34rem;
+  }
+  .folha pre {
+    font-family: var(--mono); font-size: clamp(0.8rem, 3.3vw, 0.95rem);
+    line-height: 1.8; white-space: pre; overflow-x: auto;
+  }
+  .k { color: #7A3E9D; } .n { color: #B5530A; } .c { color: var(--tinta-suave); }
+  .circulo { position: relative; white-space: nowrap; margin-right: 0.45em; }
+  .circulo svg { position: absolute; left: -12px; top: -10px; width: calc(100% + 24px); height: calc(100% + 20px); overflow: visible; }
+  .circulo ellipse { fill: none; stroke: var(--caneta); stroke-width: 2.5; stroke-dasharray: 1; stroke-dashoffset: 1; animation: risca 0.9s 0.5s ease-out forwards; }
+  @keyframes risca { to { stroke-dashoffset: 0; } }
+  .marcado { background: var(--marca-texto); padding: 0 0.15em; }
+  .nota { margin-top: 0.75rem; color: var(--caneta); font-style: italic; font-size: 1.05rem; line-height: 1.5; }
+
+  section { margin-top: 4.5rem; max-width: var(--medida); }
+  section.larga { max-width: none; }
+
+  .guias { list-style: none; border-top: 1.5px solid var(--tinta); }
+  .guias li {
+    display: grid; grid-template-columns: 2.25rem 1fr; column-gap: 0.75rem;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--grade);
+  }
+  .guias .num { font-family: var(--mono); font-weight: 800; font-size: 1.25rem; color: var(--caneta); }
+  .guias h3 { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .guias .tempo { font-family: var(--mono); font-weight: 500; font-size: 0.9rem; color: var(--tinta-suave); }
+  .guias p { margin-top: 0.3rem; }
+
+  .checklist { list-style: none; }
+  .checklist li { position: relative; padding-left: 2.1rem; margin-top: 0.75rem; }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: 0.3rem; width: 1.15rem; height: 1.15rem;
+    border: 1.5px solid var(--tinta); border-radius: 3px; background: #FFFFFF;
+  }
+  .checklist li::after {
+    content: ""; position: absolute; left: 0.38rem; top: 0.33rem; width: 0.45rem; height: 0.85rem;
+    border: solid var(--caneta); border-width: 0 3px 3px 0; transform: rotate(40deg);
+  }
+
+  .duas { display: grid; gap: 2.5rem; }
+  .duas ul { padding-left: 1.2rem; }
+  .duas li { margin-top: 0.6rem; }
+  .duas h2 { font-size: 1.35rem; }
+
+  .preco {
+    background: #FFFFFF; border: 1.5px solid var(--tinta); border-radius: 6px;
+    padding: 1.75rem 1.5rem; max-width: 30rem;
+  }
+  .preco .valor { font-family: var(--mono); font-weight: 800; font-size: 3rem; line-height: 1; }
+  .preco .valor small { font-size: 1rem; font-weight: 500; color: var(--tinta-suave); margin-left: 0.4rem; }
+  .preco p { margin-top: 1rem; }
+
+  details { border-bottom: 1px solid var(--grade); padding: 0.9rem 0; }
+  details:first-of-type { border-top: 1.5px solid var(--tinta); }
+  summary { cursor: pointer; font-family: var(--mono); font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--caneta); font-weight: 800; }
+  details[open] summary::after { content: "–"; }
+  details p { margin-top: 0.6rem; }
+
+  footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 1.5px solid var(--tinta); font-size: 0.95rem; color: var(--tinta-suave); }
+  footer p + p { margin-top: 0.25rem; }
+
+  code { font-family: var(--mono); font-size: 0.9em; }
+
+  @media (min-width: 52rem) {
+    .pagina { padding: 2rem 2.5rem 5rem; }
+    .heroi { grid-template-columns: 1.1fr 1fr; }
+    h1 { margin-top: 4.5rem; }
+    .duas { grid-template-columns: 1fr 1fr; }
+    section.larga .guias { max-width: 52rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .circulo ellipse { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="topo">
+    <a class="marca" href="./">sem<span>/</span>atalhos</a>
+    <a class="compra-curta" href="https://pay.kiwify.com.br/COLE-O-LINK">Comprar por R$ 39</a>
+  </header>
+
+  <main>
+    <div class="heroi">
+      <div>
+        <h1>A IA escreve o código. Você sabe dizer se ele está certo?</h1>
+        <p class="sub">Dev Raiz é um pacote de 5 guias práticos de C#/.NET e SQL para treinar o que nenhuma IA aprende por você: ler um erro, montar uma API, escrever SQL, entender HTTP e resolver lógica sob pressão.</p>
+        <a class="botao" href="https://pay.kiwify.com.br/COLE-O-LINK">Quero os 5 guias por R$ 39</a>
+      </div>
+
+      <figure class="folha" aria-label="Exemplo de bug: uma divisão inteira que transforma 72% em 0%">
+<pre><span class="k">int</span> aprovados = <span class="n">18</span>;
+<span class="k">int</span> inscritos = <span class="n">25</span>;
+<span class="k">double</span> percentual =
+    <span class="circulo">aprovados / inscritos<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="20" rx="48" ry="17" pathLength="1" transform="rotate(-2 50 20)"/></svg></span> * <span class="n">100</span>;
+
+Console.WriteLine(
+    <span class="n">$"Aprovação: {percentual}%"</span>);
+
+<span class="c">// saída: Aprovação: <span class="marcado">0%</span></span></pre>
+        <figcaption class="nota">Compila, roda e não avisa nada. Inteiro dividido por inteiro descarta o decimal, então 18 / 25 vira 0 antes de multiplicar. É o bug 4 de 10 do Guia 1.</figcaption>
+      </figure>
+    </div>
+
+    <section>
+      <h2>O problema</h2>
+      <p>Aceitar a sugestão da IA é fácil. O difícil é quando ela quebra em produção, quando a consulta fica lenta ou quando o entrevistador pede para você resolver sem ajuda.</p>
+      <p>A IA erra com confiança, e só percebe o erro quem conhece o básico. Se você já copiou código sem saber por que funcionava, este material é para você.</p>
+    </section>
+
+    <section class="larga">
+      <h2>O que você vai treinar</h2>
+      <ol class="guias">
+        <li><span class="num">1</span><div><h3>Debugging sem IA <span class="tempo">3 a 4 h</span></h3><p>Lê stack traces, usa breakpoint condicional, logpoint e git bisect, e caça 10 bugs reais.</p></div></li>
+        <li><span class="num">2</span><div><h3>API REST em .NET do zero <span class="tempo">6 a 8 h</span></h3><p>Monta uma API em 7 passos, um commit por passo: EF Core, migrations, validação, tratamento de erros e login com JWT.</p></div></li>
+        <li><span class="num">3</span><div><h3>SQL na mão <span class="tempo">5 a 6 h</span></h3><p>Resolve 25 exercícios em 4 níveis e roda um laboratório com 1 milhão de linhas, onde um índice leva uma busca de 34 ms para 0,3 ms.</p></div></li>
+        <li><span class="num">4</span><div><h3>Servidor HTTP do zero <span class="tempo">4 a 5 h</span></h3><p>Escreve um servidor em C# com menos de 200 linhas, sem ASP.NET, e entende rotas, headers e CORS de uma vez.</p></div></li>
+        <li><span class="num">5</span><div><h3>Treino para entrevista <span class="tempo">8 a 10 h</span></h3><p>Resolve 20 exercícios clássicos com testes automáticos e gabarito comentado com Big O.</p></div></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>O que vem no pacote</h2>
+      <ul class="checklist">
+        <li>PDF de 82 páginas com os 5 guias, as atividades e um checklist no fim de cada um.</li>
+        <li>Arquivo .zip com uma solução .NET pronta: os 10 bugs para depurar, a API completa, os scripts SQL com Docker, o servidor HTTP em duas versões e os 20 exercícios com testes.</li>
+        <li>Pasta de soluções separada, para conferir só depois de tentar.</li>
+        <li>Plano de estudo de 4 semanas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como funciona</h2>
+      <p>Cada guia segue a mesma ordem: explicação curta, exemplo em código, atividade prática e checklist. A regra de ouro é estudar com a IA desligada, consultando só a documentação oficial, como os devs faziam antes.</p>
+      <p>No total, são cerca de 26 a 33 horas de prática. Os guias são independentes, mas o plano de 4 semanas dá a ordem mais natural.</p>
+    </section>
+
+    <section class="larga">
+      <div class="duas">
+        <div>
+          <h2>Para quem é</h2>
+          <ul>
+            <li>Quem já sabe o básico de C# (variáveis, <code>if</code>, laços, classes e métodos) e quer entender o que acontece por baixo.</li>
+            <li>Quem usa IA no dia a dia e quer saber avaliar o que ela entrega.</li>
+            <li>Quem vai encarar uma entrevista técnica ao vivo.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Para quem não é</h2>
+          <ul>
+            <li>Quem nunca programou: o material parte do C# básico.</li>
+            <li>Quem procura curso em vídeo: são guias em PDF com projetos.</li>
+            <li>Quem só quer as respostas: o gabarito existe, mas o ganho vem de tentar antes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>O que você precisa</h2>
+      <p>.NET SDK 8 ou mais recente, um editor (Visual Studio, VS Code ou Rider), PostgreSQL (o guia mostra como subir com Docker), Git e curl. Funciona no Windows, no Linux e no macOS.</p>
+    </section>
+
+    <section>
+      <h2>Preço e garantia</h2>
+      <div class="preco">
+        <p class="valor">R$ 39<small>pagamento único</small></p>
+        <p>Garantia de 7 dias: se não for para você, peça o reembolso pela Kiwify.</p>
+        <a class="botao" href="https://pay.kiwify.com.br/COLE-O-LINK">Quero os 5 guias por R$ 39</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Preciso saber C#?</summary><p>O básico: variáveis, <code>if</code>, laços, classes e métodos. O resto os guias ensinam.</p></details>
+      <details><summary>Funciona com .NET 10?</summary><p>Sim. Os guias pedem .NET 8 ou mais recente e explicam como escolher a versão certa dos pacotes.</p></details>
+      <details><summary>Uso SQL Server, não PostgreSQL. Serve?</summary><p>Serve. Os exemplos são em PostgreSQL 16, e o Guia 3 traz uma tabela com as diferenças para o SQL Server.</p></details>
+      <details><summary>Uso Mac ou Linux. Funciona?</summary><p>Sim. Tudo o que o pacote usa roda nos três sistemas.</p></details>
+      <details><summary>É curso em vídeo?</summary><p>Não. São guias em PDF com projetos prontos para rodar.</p></details>
+      <details><summary>Como recebo?</summary><p>Logo após o pagamento, a Kiwify libera o PDF e o arquivo .zip.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia para pedir o reembolso pela Kiwify.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sem Atalhos: dev sem atalhos.</p>
+    <p>sematalhos.dev.br</p>
+  </footer>
+
+</div>
+</body>
+</html>

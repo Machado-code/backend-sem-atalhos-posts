@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px; overflow: hidden;
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 2px, transparent 2px),
+      linear-gradient(90deg, #DDE6EE 2px, transparent 2px);
+    background-size: 54px 54px;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 84px 84px 72px; display: flex; flex-direction: column;
+  }
+  .marca { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 34px; }
+  .marca span { color: #D7263D; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 150px; line-height: 1; letter-spacing: -6px; margin-top: 70px; }
+  .sub { font-size: 46px; line-height: 1.25; margin-top: 26px; max-width: 860px; }
+  .folha {
+    margin-top: 56px; background: #FFFFFF; border: 3px solid #16233F; border-radius: 12px;
+    padding: 34px 40px; font-family: "DejaVu Sans Mono", monospace; font-size: 38px; line-height: 1.7;
+  }
+  .k { color: #7A3E9D; } .n { color: #B5530A; } .c { color: #4A5876; }
+  .circulo { position: relative; margin: 0 0.45em; }
+  .circulo svg { position: absolute; left: -18px; top: -14px; width: calc(100% + 36px); height: calc(100% + 28px); overflow: visible; }
+  .circulo ellipse { fill: none; stroke: #D7263D; stroke-width: 3; }
+  .marcado { background: #FFE066; padding: 0 6px; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 30px; display: flex; justify-content: space-between; color: #4A5876; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="marca">sem<span>/</span>atalhos</div>
+  <h1>Dev Raiz</h1>
+  <p class="sub">5 guias para programar sem depender de IA</p>
+  <div class="folha">
+    <span class="k">double</span> p = <span class="circulo">18 / 25<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="20" rx="48" ry="17" transform="rotate(-3 50 20)"/></svg></span> * <span class="n">100</span>;<br>
+    <span class="c">// saída: <span class="marcado">0</span></span>
+  </div>
+  <div class="rodape"><span><b>C#, .NET e SQL</b></span><span>PDF + projetos</span></div>
+</body>
+</html>
