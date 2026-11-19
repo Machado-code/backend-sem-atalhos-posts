@@ -1,4 +1,4 @@
-# Projeto: lançamento do pacote .NET (R$ 39)
+# Projeto: lançamento do pacote .NET (R$ 47)
 
 Memória compartilhada entre o Claude do claude.ai e o escritório (Claude Code no VS Code).
 Quem mudar uma decisão atualiza este arquivo no mesmo commit.
@@ -17,7 +17,7 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Marca: Sem Atalhos ("dev sem atalhos"). Produto: Dev Raiz. Domínio: sematalhos.dev.br.
 - Página de vendas: `docs/index.html`, publicada pelo GitHub Pages (main, /docs) em
   https://sematalhos.dev.br. Capa do produto: `docs/img/capa-kiwify.png`.
-- Decisões da página: cupom DEVRAIZ (R$ 29) só nos primeiros 7 dias; sem suporte;
+- Decisões da página: preço R$ 47; cupom DEVRAIZ (R$ 37) só nos primeiros 7 dias; sem suporte;
   sem seção "sobre o autor".
 
 ## Stack
