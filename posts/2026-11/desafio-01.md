@@ -14,13 +14,13 @@ B) 2
 C) 3
 D) Exceção
 
-Responde só com a letra nos comentários. Amanhã eu explico, e o motivo está por trás de muito bug com EF Core.
+Responde só com a letra nos comentários. Na quarta eu explico, e o motivo está por trás de muito bug com EF Core.
 
 #dotnet #csharp #backend
 
 Texto alternativo da imagem: trecho de C# que cria uma lista com 1, 2 e 3, filtra os pares com Where, adiciona o 4 à lista e imprime pares.Count(); abaixo, as alternativas A) 1, B) 2, C) 3 e D) Exceção.
 
-# Post 2: resposta (dia seguinte)
+# Post 2: resposta (quarta-feira)
 
 Resposta: B) 2.
 
