@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px; overflow: hidden;
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 2px, transparent 2px),
+      linear-gradient(90deg, #DDE6EE 2px, transparent 2px);
+    background-size: 54px 54px;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 80px 84px 72px; display: flex; flex-direction: column;
+  }
+  .topo { display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 30px; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .quadro { color: #4A5876; font-size: 26px; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 54px;
+       line-height: 1.18; letter-spacing: -1.5px; margin-top: 64px; max-width: 900px; }
+  .folha {
+    margin-top: 44px; background: #FFFFFF; border: 3px solid #16233F; border-radius: 12px;
+    padding: 34px 40px 36px; font-family: "DejaVu Sans Mono", monospace; font-size: 35px;
+    line-height: 1.62; white-space: pre;
+  }
+  .k { color: #7A3E9D; } .t { color: #1F6F8B; } .n { color: #B5530A; } .c { color: #4A5876; }
+  .circulo { position: relative; }
+  .circulo svg { position: absolute; left: -34px; top: -22px; width: calc(100% + 68px);
+                 height: calc(100% + 44px); overflow: visible; }
+  .circulo path { fill: none; stroke: #D7263D; stroke-width: 4; stroke-linecap: round; }
+  .nota { font-family: "DejaVu Serif", Georgia, serif; font-style: italic; color: #D7263D;
+          font-size: 34px; margin-left: 62px; }
+  .final { margin-top: 48px; font-size: 46px; line-height: 1.3; }
+  .final p + p { margin-top: 10px; }
+  .marcado { background: linear-gradient(transparent 52%, #FFE066 52%, #FFE066 92%, transparent 92%);
+             padding: 0 6px; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 28px;
+            color: #4A5876; display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo">
+    <div class="marca">sem<span>/</span>atalhos</div>
+    <div class="quadro">humor de dev</div>
+  </div>
+
+  <h1>Quando você pede pra IA corrigir o bug do saldo negativo:</h1>
+
+<div class="folha"><span class="k">public void</span> <span class="t">Debitar</span>(<span class="k">decimal</span> valor)
+{
+    saldo -= valor;
+
+    <span class="c">// fix: saldo negativo</span>
+    <span class="k">if</span> (saldo &lt; <span class="n">0</span>)
+        <span class="circulo">saldo = <span class="n">0</span>;<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M8 24 C 6 6, 90 0, 96 16 C 100 32, 30 42, 6 28 C 0 22, 10 10, 34 7"/></svg></span><span class="nota">resolvido.</span>
+}</div>
+
+  <div class="final">
+    <p>O saldo nunca mais ficou negativo.</p>
+    <p>O dinheiro que o cliente gastou a mais <span class="marcado">também não voltou.</span></p>
+  </div>
+
+  <div class="rodape"><b>@sematalhos.dev</b><span>C#, .NET e SQL</span></div>
+</body>
+</html>

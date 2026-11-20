@@ -46,7 +46,14 @@ conteúdo dos guias (git, deploy, logs, rotina de dev backend), desde que sejam 
 quem trabalha com .NET e backend; são complemento, não resumo dos módulos.
 - `Humor de dev`: uma situação do dia a dia de dev, com texto e código no visual da marca.
   Piada original: nunca imagem de meme conhecido, personagem ou print de terceiros;
-  nunca zombar de pessoas, empresas ou grupos. Uma imagem ou carrossel curto.
+  nunca zombar de pessoas, empresas ou grupos; a IA pode ser alvo leve da piada, mas a
+  marca não é contra IA. Uma imagem ou carrossel curto. Duas variações:
+  - `Humor leve`: só para rir, uma situação que todo dev reconhece (commits de sexta,
+    estimativa de "é rapidinho", nomes de variáveis, o deploy que "só muda um texto").
+    Legenda curta e uma pergunta para comentar ("qual foi o seu?").
+    Modelo: `posts/modelos/humor-leve.*`.
+  - `Humor com lição`: a piada esconde um erro técnico de verdade e a legenda explica em
+    duas ou três frases. Modelo: `posts/modelos/humor-com-licao.*`.
 - `Bug real`: carrossel de 5 a 7 slides contando um incidente clássico de produção:
   sintoma → investigação → causa → correção → lição. Contado como cenário ("um caso
   comum"), nunca como se tivesse acontecido com o Matheus ou com uma empresa real.
@@ -67,6 +74,10 @@ quem trabalha com .NET e backend; são complemento, não resumo dos módulos.
 - Nunca publicar listas completas de exercícios, gabaritos inteiros ou os scripts do pacote.
 - Números de desempenho sempre como "no teste do guia"; nunca como garantia.
 - Posts em PT-BR, 1ª pessoa, no máximo 3 hashtags (#dotnet #csharp #backend ou #sql).
+- Visual: o da página (papel quadriculado, tinta azul-marinho, caneta vermelha, marca-texto
+  amarelo, fontes DejaVu Sans Mono e DejaVu Serif). Topo com "sem/atalhos" e o nome do
+  quadro; rodapé com "@sematalhos.dev". Nunca o nome do Matheus nas imagens.
+  Modelos: `posts/2026-11/desafio-01.html` e `posts/modelos/`.
 
 ## Fila
 
@@ -83,7 +94,7 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 | 3 | D13 | PR | Imagem | V03 | pendente |
 | 4 | D17 | A–D | Reels | V05 | pendente |
 | 5 | D02 | Qual você usaria? | Imagem | T09 · Passo a passo | pendente |
-| 6 | D20 | Parece certo | Reels | Humor de dev | pendente |
+| 6 | D20 | Parece certo | Reels | Humor leve | pendente |
 | 7 | D03 | PR | Imagem | T10 · Antes e depois | pendente |
 | 8 | D11 | Qual você usaria? | Reels | V04 | pendente |
 | 9 | D05 | A–D | Imagem | T12 · Anatomia | pendente |
@@ -91,17 +102,17 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 | 11 | D07 | PR | Imagem | V06 | pendente |
 | 12 | D18 | A–D | Reels | T04 · Antes e depois | pendente |
 | 13 | D09 | Qual você usaria? | Imagem | T02 · Passo a passo | pendente |
-| 14 | D15 | PR | Reels | Dev Raiz responde (sem pergunta real: Humor de dev) | pendente |
+| 14 | D15 | PR | Reels | Dev Raiz responde (sem pergunta real: Humor leve) | pendente |
 | 15 | D21 | Parece certo | Imagem | T08 · Antes e depois | pendente |
 | 16 | D04 | A–D | Reels | T13 · Mito ou verdade | pendente |
 | 17 | D16 | Qual você usaria? | Imagem | T05 · Passo a passo | pendente |
-| 18 | D06 | Parece certo | Reels | Humor de dev | pendente |
+| 18 | D06 | Parece certo | Reels | Humor com lição | pendente |
 | 19 | D19 | A–D | Imagem | T16 · Anatomia | pendente |
 | 20 | D22 | PR | Reels | T03 · Passo a passo | pendente |
 | 21 | D08 | Parece certo | Imagem | T06 · Antes e depois | pendente |
 | 22 | D10 | PR | Reels | Bug real (tema livre: um incidente clássico de backend) | pendente |
 | 23 | D12 | A–D | Imagem | T07 · Comparação | pendente |
-| 24 | D23 | Parece certo | Reels | Dev Raiz responde (sem pergunta real: Humor de dev) | pendente |
+| 24 | D23 | Parece certo | Reels | Dev Raiz responde (sem pergunta real: Humor leve) | pendente |
 | 25 | D24 | Qual você usaria? | Imagem | T14 · Passo a passo | pendente |
 | 26 | D25 | PR | Reels | T15 · Comparação | pendente |
 
