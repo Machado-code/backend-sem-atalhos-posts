@@ -41,6 +41,20 @@ Sexta (dicas):
 - `Comparação`: duas ou três opções com quando usar cada uma.
 - `Anatomia`: uma coisa só (um stack trace, uma requisição HTTP) com setas explicando cada parte.
 
+Sexta (quadros, a partir da semana 6, mais ou menos um a cada 4 semanas). Podem sair do
+conteúdo dos guias (git, deploy, logs, rotina de dev backend), desde que sejam úteis para
+quem trabalha com .NET e backend; são complemento, não resumo dos módulos.
+- `Humor de dev`: uma situação do dia a dia de dev, com texto e código no visual da marca.
+  Piada original: nunca imagem de meme conhecido, personagem ou print de terceiros;
+  nunca zombar de pessoas, empresas ou grupos. Uma imagem ou carrossel curto.
+- `Bug real`: carrossel de 5 a 7 slides contando um incidente clássico de produção:
+  sintoma → investigação → causa → correção → lição. Contado como cenário ("um caso
+  comum"), nunca como se tivesse acontecido com o Matheus ou com uma empresa real.
+- `Dev Raiz responde`: responde uma dúvida REAL deixada nos comentários. O Buffer não lê
+  comentários, então o resumo da semana anterior pergunta ao Matheus se apareceu alguma
+  dúvida boa (é opcional para ele). Sem pergunta real, a tarefa usa o substituto da Fila.
+  Nunca inventar a pergunta.
+
 ## Chamada para venda por fase
 
 - Semanas 1 e 2: nenhum link no post. O link fica só no perfil.
@@ -69,27 +83,27 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 | 3 | D13 | PR | Imagem | V03 | pendente |
 | 4 | D17 | A–D | Reels | V05 | pendente |
 | 5 | D02 | Qual você usaria? | Imagem | T09 · Passo a passo | pendente |
-| 6 | D20 | Parece certo | Reels | T07 · Comparação | pendente |
+| 6 | D20 | Parece certo | Reels | Humor de dev | pendente |
 | 7 | D03 | PR | Imagem | T10 · Antes e depois | pendente |
 | 8 | D11 | Qual você usaria? | Reels | V04 | pendente |
 | 9 | D05 | A–D | Imagem | T12 · Anatomia | pendente |
-| 10 | D14 | Parece certo | Reels | T14 · Passo a passo | pendente |
+| 10 | D14 | Parece certo | Reels | Bug real (usa o tema do T11: FK sem índice e N+1) | pendente |
 | 11 | D07 | PR | Imagem | V06 | pendente |
 | 12 | D18 | A–D | Reels | T04 · Antes e depois | pendente |
 | 13 | D09 | Qual você usaria? | Imagem | T02 · Passo a passo | pendente |
-| 14 | D15 | PR | Reels | T15 · Comparação | pendente |
+| 14 | D15 | PR | Reels | Dev Raiz responde (sem pergunta real: Humor de dev) | pendente |
 | 15 | D21 | Parece certo | Imagem | T08 · Antes e depois | pendente |
 | 16 | D04 | A–D | Reels | T13 · Mito ou verdade | pendente |
 | 17 | D16 | Qual você usaria? | Imagem | T05 · Passo a passo | pendente |
-| 18 | D06 | Parece certo | Reels | T11 · Mito ou verdade | pendente |
+| 18 | D06 | Parece certo | Reels | Humor de dev | pendente |
 | 19 | D19 | A–D | Imagem | T16 · Anatomia | pendente |
 | 20 | D22 | PR | Reels | T03 · Passo a passo | pendente |
 | 21 | D08 | Parece certo | Imagem | T06 · Antes e depois | pendente |
-| 22 | D10 | PR | Reels | V02 (só com história do Matheus; senão, repetir um T com outro formato) | pendente |
-| 23 | D12 | A–D | Imagem | — | pendente |
-| 24 | D23 | Parece certo | Reels | — | pendente |
-| 25 | D24 | Qual você usaria? | Imagem | — | pendente |
-| 26 | D25 | PR | Reels | — | pendente |
+| 22 | D10 | PR | Reels | Bug real (tema livre: um incidente clássico de backend) | pendente |
+| 23 | D12 | A–D | Imagem | T07 · Comparação | pendente |
+| 24 | D23 | Parece certo | Reels | Dev Raiz responde (sem pergunta real: Humor de dev) | pendente |
+| 25 | D24 | Qual você usaria? | Imagem | T14 · Passo a passo | pendente |
+| 26 | D25 | PR | Reels | T15 · Comparação | pendente |
 
 ---
 
@@ -459,7 +473,7 @@ for (int i = 0; i < n; i++)
 | ID | Tema | Observação |
 | --- | --- | --- |
 | V01 | A IA escreve; você precisa saber se está certo | A tese do pacote e a regra de ouro: IA desligada durante o treino |
-| V02 | Por que criei o Dev Raiz | Precisa de uma história do Matheus antes de escrever |
+| V02 | Por que criei o Dev Raiz | Fora da Fila: só entra se o Matheus quiser contar a história dele |
 | V03 | Lançamento: o que tem nos 5 guias | Tabela dos guias + cupom + link |
 | V04 | Perguntas e respostas | É para iniciante? Tem código? Serve com .NET 10 e SQL Server? |
 | V05 | Últimos dias do cupom | Só se o cupom estiver mesmo acabando |
