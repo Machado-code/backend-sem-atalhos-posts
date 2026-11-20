@@ -9,8 +9,10 @@ em até 30 dias, com o mínimo de trabalho manual.
 
 ## Responsabilidades
 - Claude (claude.ai): página de vendas, posts, legendas e imagens; tarefa semanal
-  (domingo à noite) que cria RASCUNHOS no Buffer. Nunca publica.
-- Matheus: revisa e agenda os rascunhos às segundas; responde comentários.
+  (domingo 20h34) que cria RASCUNHOS no Buffer e mostra a semana ao Matheus. Só agenda
+  depois que ele escreve "aprovo"; nunca publica direto.
+- Matheus: revisa a semana e responde "aprovo" (ou pede mudanças); responde comentários.
+  Sem rosto e sem voz nos posts, para não gerar demanda.
 - Escritório: tarefas de código pedidas em `inbox/`.
 
 ## Marca
@@ -24,10 +26,13 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Venda e entrega: Kiwify.
 - Publicação: Buffer gratuito (LinkedIn + Instagram profissional + 1 canal livre).
   MCP: https://mcp.buffer.com/mcp
-- Imagens: PNG 1080x1350 neste repositório (público). O Buffer recebe o link raw:
-  `https://raw.githubusercontent.com/Machado-code/backend-sem-atalhos-posts/main/<caminho>`
-- Ritmo: 3 posts por semana por canal. Segunda: desafio de código com alternativas
-  A–D. Quarta: a resposta. Sexta: dica (carrossel) ou post de venda.
+- Imagens: PNG 1080x1350 (e Reels MP4 1080x1920) neste repositório (público). O Buffer
+  recebe o link raw fixado no commit:
+  `https://raw.githubusercontent.com/Machado-code/backend-sem-atalhos-posts/<sha>/<caminho>`
+- Ritmo: 3 posts por semana por canal, às 19h. Segunda: post interativo com o desafio
+  (rodízio de formatos: A–D, PR, Parece certo, Qual você usaria?). Quarta: a resposta
+  (imagem ou Reels sem voz). Sexta: dica (carrossel) ou post de venda. Formatos e
+  rodízio no banco de pautas. Horário revisto em 18/12 com dados reais.
 - Pautas: `pautas/banco-de-pautas.md` (fila semanal, desafios com resposta, dicas e
   posts de venda). A tarefa semanal segue a fila e atualiza o status.
 

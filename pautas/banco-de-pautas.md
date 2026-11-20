@@ -8,9 +8,38 @@ scripts NUNCA entram neste repositório, que é público.
 
 | Dia | O que sai | Imagem |
 | --- | --- | --- |
-| Segunda | Desafio: código + alternativas A–D, "comente só a letra" | Template `posts/2026-11/desafio-01.html` |
-| Quarta | Resposta do desafio de segunda, com a explicação | Opcional: mesmo template, com a alternativa certa destacada |
-| Sexta | Dica (carrossel) ou post de venda, conforme a fila | Carrossel de 3 a 6 slides, 1080x1350 |
+| Segunda | Post interativo com o desafio da semana, no formato da coluna "Seg" da Fila | 1080x1350, layout de `posts/2026-11/desafio-01.html` |
+| Quarta | Resposta do desafio de segunda, com a explicação, no formato da coluna "Qua" | Imagem 1080x1350 ou Reels sem voz 1080x1920 |
+| Sexta | Dica (carrossel) ou post de venda, no formato da coluna "Sex" | Carrossel de 3 a 6 slides, 1080x1350 |
+
+Horário: 19h (America/Sao_Paulo). Sem rosto e sem voz do Matheus: tudo é gerado aqui.
+
+## Formatos (rodízio para não repetir)
+
+O conteúdo de cada desafio (código, resposta, explicação) continua o mesmo; o que muda
+é como ele é apresentado.
+
+Segunda:
+- `A–D`: "Sem rodar: o que esse código imprime?" com alternativas A–D; "comente só a letra".
+- `PR`: "Você aprovaria esse PR?" O código aparece como um diff ou trecho de pull request
+  (título curto do PR em cima). Pergunta: "aprova ou pede mudança? Comenta o porquê."
+- `Parece certo`: "Compila, roda e parece certo. O que está errado aqui?" Sem alternativas;
+  as pessoas apontam o problema nos comentários.
+- `Qual você usaria?`: duas versões lado a lado (A e B) e a pergunta "qual você usaria e
+  por quê?". Na quarta, a resposta diz qual eu uso, quando a outra faz sentido e o motivo.
+
+Quarta:
+- `Imagem`: a alternativa ou a linha certa destacada com marca-texto e a correção.
+- `Reels`: vídeo vertical de 15 a 25 s, sem voz: o código aparece, a linha com problema
+  é circulada em vermelho, a correção entra no lugar e a explicação vai em legendas
+  curtas na tela. Se o vídeo falhar, vira `Imagem` e a tarefa avisa.
+
+Sexta (dicas):
+- `Passo a passo`: um slide por passo.
+- `Antes e depois`: o jeito comum e o jeito certo, lado a lado.
+- `Mito ou verdade`: uma afirmação por slide, com o veredito no seguinte.
+- `Comparação`: duas ou três opções com quando usar cada uma.
+- `Anatomia`: uma coisa só (um stack trace, uma requisição HTTP) com setas explicando cada parte.
 
 ## Chamada para venda por fase
 
@@ -30,34 +59,37 @@ scripts NUNCA entram neste repositório, que é público.
 A tarefa semanal pega a primeira semana com status `pendente`, cria os rascunhos
 no Buffer e muda o status para `rascunho`. Depois que o Matheus agenda, vira `agendado`.
 
-| Semana | Seg + Qua (desafio) | Sex | Status |
-| --- | --- | --- | --- |
-| 1 | D00 | T01 | pendente |
-| 2 | D01 | V01 | pendente |
-| 3 | D13 | V03 | pendente |
-| 4 | D17 | V05 | pendente |
-| 5 | D02 | T09 | pendente |
-| 6 | D20 | T07 | pendente |
-| 7 | D03 | T10 | pendente |
-| 8 | D11 | V04 | pendente |
-| 9 | D05 | T12 | pendente |
-| 10 | D14 | T14 | pendente |
-| 11 | D07 | V06 | pendente |
-| 12 | D18 | T04 | pendente |
-| 13 | D09 | T02 | pendente |
-| 14 | D15 | T15 | pendente |
-| 15 | D21 | T08 | pendente |
-| 16 | D04 | T13 | pendente |
-| 17 | D16 | T05 | pendente |
-| 18 | D06 | T11 | pendente |
-| 19 | D19 | T16 | pendente |
-| 20 | D22 | T03 | pendente |
-| 21 | D08 | T06 | pendente |
-| 22 | D10 | V02 | pendente |
-| 23 | D12 | — | pendente |
-| 24 | D23 | — | pendente |
-| 25 | D24 | — | pendente |
-| 26 | D25 | — | pendente |
+Se um desafio não couber bem no formato da semana, a tarefa pode trocar pelo formato
+de segunda mais próximo que ainda não saiu no último mês, e diz isso no resumo.
+
+| Semana | Desafio | Seg | Qua | Sex | Status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | D00 | A–D | Imagem | T01 · Anatomia | pendente |
+| 2 | D01 | Parece certo | Imagem | V01 | pendente |
+| 3 | D13 | PR | Imagem | V03 | pendente |
+| 4 | D17 | A–D | Reels | V05 | pendente |
+| 5 | D02 | Qual você usaria? | Imagem | T09 · Passo a passo | pendente |
+| 6 | D20 | Parece certo | Reels | T07 · Comparação | pendente |
+| 7 | D03 | PR | Imagem | T10 · Antes e depois | pendente |
+| 8 | D11 | Qual você usaria? | Reels | V04 | pendente |
+| 9 | D05 | A–D | Imagem | T12 · Anatomia | pendente |
+| 10 | D14 | Parece certo | Reels | T14 · Passo a passo | pendente |
+| 11 | D07 | PR | Imagem | V06 | pendente |
+| 12 | D18 | A–D | Reels | T04 · Antes e depois | pendente |
+| 13 | D09 | Qual você usaria? | Imagem | T02 · Passo a passo | pendente |
+| 14 | D15 | PR | Reels | T15 · Comparação | pendente |
+| 15 | D21 | Parece certo | Imagem | T08 · Antes e depois | pendente |
+| 16 | D04 | A–D | Reels | T13 · Mito ou verdade | pendente |
+| 17 | D16 | Qual você usaria? | Imagem | T05 · Passo a passo | pendente |
+| 18 | D06 | Parece certo | Reels | T11 · Mito ou verdade | pendente |
+| 19 | D19 | A–D | Imagem | T16 · Anatomia | pendente |
+| 20 | D22 | PR | Reels | T03 · Passo a passo | pendente |
+| 21 | D08 | Parece certo | Imagem | T06 · Antes e depois | pendente |
+| 22 | D10 | PR | Reels | V02 (só com história do Matheus; senão, repetir um T com outro formato) | pendente |
+| 23 | D12 | A–D | Imagem | — | pendente |
+| 24 | D23 | Parece certo | Reels | — | pendente |
+| 25 | D24 | Qual você usaria? | Imagem | — | pendente |
+| 26 | D25 | PR | Reels | — | pendente |
 
 ---
 
