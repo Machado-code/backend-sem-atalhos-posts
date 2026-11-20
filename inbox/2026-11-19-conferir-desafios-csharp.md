@@ -13,6 +13,9 @@ e de contas já foram executados (PostgreSQL 16 e Python).
 Desafios a rodar: D01 a D10, D17, D20 (pode interromper: só confirme que demora),
 D21 e D00 (`posts/2026-11/desafio-01.md`).
 
+Prazo: até sábado, 28/11. O D01 sai na segunda, 30/11; os outros saem nas semanas
+seguintes (ordem na Fila do banco de pautas).
+
 # Pronto quando
 - Cada desafio tem a saída real anotada na resposta, em `outbox/` com o mesmo nome.
 - Qualquer divergência vem com a saída exata e a versão do .NET usada.
