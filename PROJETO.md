@@ -50,6 +50,18 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Os guias completos (PDF, .md e .zip do pacote) NUNCA entram aqui. Só trechos curtos
   de divulgação, como os do banco de pautas.
 
+## Próximo produto (ideia, não construir antes da primeira venda)
+- Parte 2 do Dev Raiz: programar COM IA usando a base dos 5 guias. Não contradiz a marca:
+  o Dev Raiz ensina a não depender da IA; a Parte 2 ensina a conferir o que ela gera.
+  Cada módulo retoma um guia (depurar com IA e pegar quando ela erra, conferir com
+  EXPLAIN o SQL que ela sugere, montar a API em par com ela, testar o código gerado,
+  saber quando não usar). Escada: Dev Raiz (R$ 47) → Parte 2 (preço maior) → oferta
+  para quem comprou o primeiro (upsell/order bump na Kiwify).
+- Validação antes de construir: (1) primeira venda do Dev Raiz; (2) comentários e alcance
+  dos posts "Parece certo" com código no estilo do que a IA costuma sugerir; (3) uma
+  pergunta a quem comprou: "faria sentido uma parte com IA?".
+- Regra que continua valendo: nada de avatar ou voz gerados por IA se passando pelo Matheus.
+
 ## Status
 - 2026-11-19: repositório criado; estrutura inicial e primeiro desafio (desafio-01) enviados.
 - 2026-11-19: banco de pautas criado (26 desafios, 16 dicas, 6 posts de venda);
@@ -63,3 +75,7 @@ em até 30 dias, com o mínimo de trabalho manual.
   cupom DEVRAIZ no dia do lançamento, e-mail contato@sematalhos.dev.br no Zoho,
   Instagram profissional, Buffer + conector.
 - Pendente (escritório): `inbox/2026-11-19-conferir-desafios-csharp.md`.
+- 2026-11-20: Instagram @sematalhos.dev ligado ao Buffer (conector ativo no claude.ai);
+  tarefa semanal criada (domingo 20h34); posts às 19h; rodízio de formatos e quadros
+  extras (Humor de dev, Bug real, Dev Raiz responde) a partir da semana 6.
+  Revisão do horário com dados reais em 18/12.
