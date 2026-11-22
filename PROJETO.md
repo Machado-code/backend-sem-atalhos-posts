@@ -26,7 +26,8 @@ em até 30 dias, com o mínimo de trabalho manual.
 ## Stack
 - Venda e entrega: Kiwify.
 - Publicação: Buffer gratuito com o Instagram @sematalhos.dev e o LinkedIn pessoal do
-  Matheus (perfil Matheus F. Machado); sobra 1 canal livre.
+  Matheus (perfil Matheus F. Machado), com o mesmo fluxo de rascunho e "aprovo";
+  sobra 1 canal livre.
   MCP: https://mcp.buffer.com/mcp
 - Imagens: PNG 1080x1350 (e Reels MP4 1080x1920) neste repositório (público). O Buffer
   recebe o link raw fixado no commit:
@@ -82,3 +83,5 @@ em até 30 dias, com o mínimo de trabalho manual.
   tarefa semanal criada (domingo 20h34); posts às 19h; rodízio de formatos e quadros
   extras (Humor de dev, Bug real, Dev Raiz responde) a partir da semana 6.
   Revisão do horário com dados reais em 18/12.
+- 2026-11-22: semana 1 em rascunho no Buffer (Instagram e LinkedIn): desafio D00 na
+  segunda, resposta em imagem na quarta e carrossel T01 (stack trace) na sexta.

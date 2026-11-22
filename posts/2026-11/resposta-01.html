@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px; overflow: hidden;
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 2px, transparent 2px),
+      linear-gradient(90deg, #DDE6EE 2px, transparent 2px);
+    background-size: 54px 54px;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 80px 84px 72px; display: flex; flex-direction: column;
+  }
+  .topo { display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 30px; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .quadro { color: #4A5876; font-size: 26px; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 64px;
+       line-height: 1.12; letter-spacing: -2px; margin-top: 60px; }
+  .marcado { background: linear-gradient(transparent 52%, #FFE066 52%, #FFE066 92%, transparent 92%);
+             padding: 0 6px; }
+  .sub { font-size: 38px; color: #4A5876; margin-top: 18px; line-height: 1.3; }
+  .folha {
+    margin-top: 40px; background: #FFFFFF; border: 3px solid #16233F; border-radius: 12px;
+    padding: 30px 36px 32px; font-family: "DejaVu Sans Mono", monospace; font-size: 29px;
+    line-height: 1.7; white-space: pre;
+  }
+  .k { color: #7A3E9D; } .t { color: #1F6F8B; } .n { color: #B5530A; }
+  .nota { font-family: "DejaVu Serif", Georgia, serif; font-style: italic; color: #D7263D; }
+  .linha { background: linear-gradient(transparent 8%, #FFE066 8%, #FFE066 92%, transparent 92%); }
+  .final { margin-top: 40px; font-size: 38px; line-height: 1.35; }
+  .final .depois { margin-top: 22px; }
+  .final code { font-family: "DejaVu Sans Mono", monospace; font-size: 34px; font-weight: 700; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 28px;
+            color: #4A5876; display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo">
+    <div class="marca">sem<span>/</span>atalhos</div>
+    <div class="quadro">resposta do desafio #1</div>
+  </div>
+
+  <h1>Resposta: <span class="marcado">B) 2</span></h1>
+  <p class="sub">O Where não filtra na hora. Ele guarda a regra e espera alguém pedir o resultado.</p>
+
+<div class="folha"><span class="k">var</span> numeros = <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">int</span>&gt; { <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span> };
+<span class="k">var</span> pares = numeros.<span class="t">Where</span>(n =&gt; n % <span class="n">2</span> == <span class="n">0</span>);
+<span class="nota">  ↑ ainda não filtrou nada</span>
+
+numeros.<span class="t">Add</span>(<span class="n">4</span>);
+
+<span class="linha"><span class="t">Console</span>.<span class="t">WriteLine</span>(pares.<span class="t">Count</span>());</span>
+<span class="nota">  ↑ filtra só agora: { 2, 4 }</span></div>
+
+  <div class="final">
+    <p>No EF Core é igual: enumerar a mesma consulta duas vezes são <span class="marcado">duas idas ao banco.</span></p>
+    <p class="depois">Vai usar o resultado mais de uma vez? Chame <code>.ToList()</code> logo depois do Where.</p>
+  </div>
+
+  <div class="rodape"><b>@sematalhos.dev</b><span>C#, .NET e SQL</span></div>
+</body>
+</html>
