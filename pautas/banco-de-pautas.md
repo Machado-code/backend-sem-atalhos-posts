@@ -90,7 +90,7 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 
 | Semana | Desafio | Seg | Qua | Sex | Status |
 | --- | --- | --- | --- | --- | --- |
-| 1 | D00 | A–D | Imagem | T01 · Anatomia | rascunho |
+| 1 | D00 | A–D | Imagem | T01 · Anatomia | agendado |
 | 2 | D01 | Parece certo | Imagem | V01 | pendente |
 | 3 | D13 | PR | Imagem | V03 | pendente |
 | 4 | D17 | A–D | Reels | V05 | pendente |
