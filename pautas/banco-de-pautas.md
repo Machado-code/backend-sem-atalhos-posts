@@ -12,7 +12,8 @@ scripts NUNCA entram neste repositório, que é público.
 | Quarta | Resposta do desafio de segunda, com a explicação, no formato da coluna "Qua" | Imagem 1080x1350 ou Reels sem voz 1080x1920 |
 | Sexta | Dica (carrossel) ou post de venda, no formato da coluna "Sex" | Carrossel de 3 a 6 slides, 1080x1350 |
 
-Horário: 19h (America/Sao_Paulo). Sem rosto e sem voz do Matheus: tudo é gerado aqui.
+Horário (America/Sao_Paulo): Instagram às 19h, LinkedIn às 8h30, com as mesmas imagens.
+Sem rosto e sem voz do Matheus: tudo é gerado aqui.
 
 ## Formatos (rodízio para não repetir)
 
@@ -89,7 +90,7 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 
 | Semana | Desafio | Seg | Qua | Sex | Status |
 | --- | --- | --- | --- | --- | --- |
-| 1 | D00 | A–D | Imagem | T01 · Anatomia | pendente |
+| 1 | D00 | A–D | Imagem | T01 · Anatomia | agendado |
 | 2 | D01 | Parece certo | Imagem | V01 | pendente |
 | 3 | D13 | PR | Imagem | V03 | pendente |
 | 4 | D17 | A–D | Reels | V05 | pendente |

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px; overflow: hidden;
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 2px, transparent 2px),
+      linear-gradient(90deg, #DDE6EE 2px, transparent 2px);
+    background-size: 54px 54px;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 80px 84px 72px; display: flex; flex-direction: column;
+  }
+  .topo { display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 30px; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .quadro { color: #4A5876; font-size: 26px; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 58px;
+       line-height: 1.15; letter-spacing: -1.5px; margin-top: 60px; }
+  h1 .num { color: #D7263D; }
+  .sub { font-size: 36px; color: #4A5876; margin-top: 18px; line-height: 1.3; }
+  .folha {
+    margin-top: 38px; background: #FFFFFF; border: 3px solid #16233F; border-radius: 12px;
+    padding: 28px 32px 30px; font-family: "DejaVu Sans Mono", monospace; font-size: 26px;
+    line-height: 1.62; white-space: pre;
+  }
+  .folha.grande { font-size: 30px; }
+  .folha.media { font-size: 28px; }
+  .apagado { color: #A3AEC2; }
+  .tipo { color: #7A3E9D; font-weight: 700; }
+  .marcado { background: linear-gradient(transparent 52%, #FFE066 52%, #FFE066 92%, transparent 92%);
+             padding: 0 4px; }
+  .linha { background: linear-gradient(transparent 6%, #FFE066 6%, #FFE066 94%, transparent 94%); }
+  .sublinhado { text-decoration: underline; text-decoration-color: #D7263D;
+                text-decoration-thickness: 4px; text-underline-offset: 8px; }
+  .seta { font-family: "DejaVu Serif", Georgia, serif; font-style: italic; color: #D7263D;
+          font-size: 32px; margin-top: 22px; line-height: 1.4; }
+  .texto { margin-top: 34px; font-size: 35px; line-height: 1.38; }
+  .texto p + p { margin-top: 18px; }
+  .texto code, .lista code { font-family: "DejaVu Sans Mono", monospace; font-size: 31px; font-weight: 700; }
+  .rotulo { margin-top: 44px; font-size: 32px; color: #4A5876; }
+  .tabela { margin-top: 12px; font-size: 33px; line-height: 1.3; }
+  .tabela div { display: flex; gap: 18px; padding: 14px 0; border-bottom: 2px solid #DDE6EE; }
+  .tabela div:last-child { border-bottom: none; }
+  .tabela b { font-family: "DejaVu Sans Mono", monospace; font-size: 28px; color: #7A3E9D;
+              min-width: 410px; padding-top: 4px; }
+  .lista { margin-top: 44px; display: flex; flex-direction: column; gap: 20px; }
+  .item { background: #FFFFFF; border: 3px solid #16233F; border-radius: 12px; padding: 20px 28px;
+          display: flex; gap: 24px; align-items: baseline; }
+  .item .n { font-family: "DejaVu Sans Mono", monospace; font-size: 44px; font-weight: 700; color: #D7263D; }
+  .item .t { font-family: "DejaVu Sans Mono", monospace; font-size: 36px; font-weight: 700; }
+  .item .d { font-size: 30px; color: #4A5876; margin-top: 4px; }
+  .caixa { position: relative; display: inline-block; }
+  .caixa svg { position: absolute; left: -16px; top: -5px; width: calc(100% + 30px);
+               height: calc(100% + 12px); overflow: visible; }
+  .caixa path { fill: none; stroke: #D7263D; stroke-width: 4; stroke-linecap: round;
+                stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .nota { margin-top: 30px; font-style: italic; color: #D7263D; font-size: 34px; }
+  .pequena { font-size: 24px; color: #4A5876; margin-top: 16px; font-style: italic; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 28px;
+            color: #4A5876; display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo">
+    <div class="marca">sem<span>/</span>atalhos</div>
+    <div class="quadro">anatomia · 4/5</div>
+  </div>
+
+  <h1><span class="num">4.</span> O que vem depois do último ---&gt;</h1>
+
+<div class="folha grande"><span class="apagado">DbUpdateException: An error occurred
+while saving the entity changes...</span>
+<span class="linha"> ---&gt; PostgresException: 23505:</span>
+<span class="linha">duplicate key value violates unique</span>
+<span class="linha">constraint "IX_Clientes_Email"</span></div>
+
+  <div class="texto">
+    <p>A exceção de fora só diz que falhou ao salvar. A causa real vem depois do último <code>---&gt;</code>: <span class="marcado">um e-mail repetido</span>, barrado pelo índice único do banco.</p>
+    <p>No log, grave a exceção inteira, não só a <code>ex.Message</code>. A Message não traz o <code>---&gt;</code>.</p>
+  </div>
+
+  <div class="rodape"><b>@sematalhos.dev</b><span>arraste →</span></div>
+</body>
+</html>
