@@ -78,7 +78,7 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Pendente (Matheus): verificação de identidade na Kiwify, compra de teste,
   cupom DEVRAIZ no dia do lançamento, e-mail contato@sematalhos.dev.br no Zoho,
   Instagram profissional, Buffer + conector.
-- Pendente (escritório): `inbox/2026-11-19-conferir-desafios-csharp.md`.
+- 2026-11-23: escritório conferiu os desafios C# (todos batem; gancho do D04 corrigido).
 - 2026-11-20: Instagram @sematalhos.dev ligado ao Buffer (conector ativo no claude.ai);
   tarefa semanal criada (domingo 20h34); posts às 19h; rodízio de formatos e quadros
   extras (Humor de dev, Bug real, Dev Raiz responde) a partir da semana 6.

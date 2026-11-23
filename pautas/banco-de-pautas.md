@@ -74,6 +74,8 @@ quem trabalha com .NET e backend; são complemento, não resumo dos módulos.
 - Trechos de código curtos: no máximo 12 linhas e 48 caracteres por linha, para caber na imagem.
 - Nunca publicar listas completas de exercícios, gabaritos inteiros ou os scripts do pacote.
 - Números de desempenho sempre como "no teste do guia"; nunca como garantia.
+- Desafios C# D00 a D10, D17, D20 e D21 rodados pelo escritório em 23/11 (.NET 8, 9 e 10):
+  todos batem com a resposta marcada. Detalhes em `outbox/2026-11-19-conferir-desafios-csharp.md`.
 - Posts em PT-BR, 1ª pessoa, no máximo 3 hashtags (#dotnet #csharp #backend ou #sql).
 - Visual: o da página (papel quadriculado, tinta azul-marinho, caneta vermelha, marca-texto
   amarelo, fontes DejaVu Sans Mono e DejaVu Serif). Topo com "sem/atalhos" e o nome do
@@ -167,14 +169,14 @@ Console.WriteLine(string.Join(", ", tarefas));
 - Explicação: não se altera uma lista enquanto o `foreach` percorre ela. Correção: `tarefas.RemoveAll(t => t.StartsWith("CANCELADA"));`.
 
 ### D04 · Guia 1, bug 6 · Maiúscula importa
-- Gancho: Três usuários ativos. Quantos o código encontra?
+- Gancho: Três usuários, dois ativos. Quantos o código encontra?
 ```csharp
 string[] s = { "Ativo", "inativo", "ATIVO" };
 Console.WriteLine(s.Count(x => x == "ativo"));
 ```
 - Alternativas: A) 0 · B) 1 · C) 2 · D) 3
 - Resposta: **A**
-- Explicação: comparação de texto diferencia maiúsculas, e nenhum item é exatamente "ativo". Correção: `string.Equals(x, "ativo", StringComparison.OrdinalIgnoreCase)`. Melhor ainda: um `enum`.
+- Explicação: comparação de texto diferencia maiúsculas, e nenhum item é exatamente "ativo". Correção: `string.Equals(x, "ativo", StringComparison.OrdinalIgnoreCase)`, que imprime 2 ("inativo" não conta). Melhor ainda: um `enum`.
 
 ### D05 · Guia 1, bug 9 · Data com sotaque
 - Gancho: Funciona na sua máquina. No servidor, o vencimento muda de mês.
@@ -188,6 +190,7 @@ Console.WriteLine(data.Month);
 - Alternativas: A) 3 · B) 4 · C) Exceção · D) Depende do fuso horário
 - Resposta: **A**
 - Explicação: em inglês, o formato é mês/dia/ano. Servidores em nuvem e Docker costumam vir em inglês. Correção: `DateTime.ParseExact(..., "dd/MM/yyyy", CultureInfo.InvariantCulture)`; em APIs, use ISO: `2026-04-03`.
+- Resposta pronta para comentário: em container com globalização invariante (Alpine, por exemplo), o `new("en-US")` lança `CultureNotFoundException` antes de imprimir; a resposta A vale para o `dotnet new console` normal. Mais um motivo para não depender da cultura do servidor.
 
 ### D06 · Guia 1, bug 10 · A propriedade que chama a si mesma
 - Gancho: Quatro linhas de propriedade e o programa morre.
