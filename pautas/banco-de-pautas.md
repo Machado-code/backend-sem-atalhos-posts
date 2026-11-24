@@ -69,6 +69,17 @@ quem trabalha com .NET e backend; são complemento, não resumo dos módulos.
 - Semanas 3 e 4 (lançamento): o post de resposta termina com "Esse é um dos detalhes que o Guia N treina" e o link.
 - Da semana 5 em diante: uma menção leve ao guia no post de resposta; venda direta só nas pautas V.
 
+## Chamada para a amostra (Instagram, toda semana)
+
+Quem comenta "amostra" em qualquer post do Instagram recebe na DM o link da amostra
+grátis (automação do NicoChat). Para puxar esses comentários:
+- Uma vez por semana, só no Instagram, na legenda do post de sexta, antes das hashtags:
+  "Quer as primeiras páginas do Dev Raiz? Comente AMOSTRA que eu te mando no direct."
+- Se a sexta for um post de venda (V), a chamada vai no post de quarta, porque a sexta
+  já tem a chamada de compra.
+- Nunca no post de segunda (os comentários ali são as respostas do desafio) e nunca no
+  LinkedIn (lá não há automação; quando a fase permitir link, use o do site).
+
 ## Regras
 
 - Trechos de código curtos: no máximo 12 linhas e 48 caracteres por linha, para caber na imagem.

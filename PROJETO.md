@@ -37,6 +37,12 @@ em até 30 dias, com o mínimo de trabalho manual.
   (rodízio de formatos: A–D, PR, Parece certo, Qual você usaria?). Quarta: a resposta
   (imagem ou Reels sem voz). Sexta: dica (carrossel) ou post de venda. Formatos e
   rodízio no banco de pautas. Horário revisto em 18/12 com dados reais.
+- Amostra grátis: `docs/amostra/dev-raiz-amostra-gratis.pdf` (capa e Guia 1 até a 1.6).
+  Instagram: NicoChat (plano grátis, até 200 contatos) ligado ao @sematalhos.dev;
+  comentário com "amostra" recebe o link na DM; mensagem nova recebe boas-vindas com
+  amostra e site (no máximo 1 vez a cada 24 h) e a conversa fica aberta para o Matheus.
+  Não existe gatilho para quem começa a seguir. E-mail: MailerLite (grupo "Amostra Dev
+  Raiz", automação de entrega desligada até o formulário entrar no site).
 - Pautas: `pautas/banco-de-pautas.md` (fila semanal, desafios com resposta, dicas e
   posts de venda). A tarefa semanal segue a fila e atualiza o status.
 
@@ -85,3 +91,5 @@ em até 30 dias, com o mínimo de trabalho manual.
   Revisão do horário com dados reais em 18/12.
 - 2026-11-22: semana 1 em rascunho no Buffer (Instagram e LinkedIn): desafio D00 na
   segunda, resposta em imagem na quarta e carrossel T01 (stack trace) na sexta.
+- 2026-11-24: amostra grátis no site; automações do NicoChat ativas no Instagram;
+  "Comente AMOSTRA" entra uma vez por semana na legenda do Instagram (banco de pautas).
