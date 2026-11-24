@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 612pt 792pt; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 612pt; height: 792pt; }
+  body {
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 1.5pt, transparent 1.5pt),
+      linear-gradient(90deg, #DDE6EE 1.5pt, transparent 1.5pt);
+    background-size: 30pt 30pt;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 64pt 60pt 56pt; display: flex; flex-direction: column;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .topo { display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 15pt; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .selo { font-size: 11pt; color: #4A5876; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 34pt;
+       line-height: 1.12; letter-spacing: -1pt; margin-top: 96pt; }
+  .marcado { background: linear-gradient(transparent 55%, #FFE066 55%, #FFE066 92%, transparent 92%); padding: 0 3pt; }
+  .sub { font-size: 15pt; line-height: 1.45; margin-top: 22pt; max-width: 430pt; }
+  .folha { margin-top: 40pt; background: #FFFFFF; border: 2pt solid #16233F; border-radius: 8pt;
+           padding: 22pt 26pt; font-size: 12.5pt; line-height: 1.5; }
+  .folha h2 { font-family: "DejaVu Sans Mono", monospace; font-size: 12pt; margin-bottom: 10pt; }
+  .folha ul { list-style: none; }
+  .folha li { padding-left: 16pt; position: relative; margin-top: 5pt; }
+  .folha li::before { content: "/"; position: absolute; left: 0; color: #D7263D; font-family: "DejaVu Sans Mono", monospace; font-weight: 700; }
+  .nota { margin-top: 26pt; font-style: italic; color: #D7263D; font-size: 13pt; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 11pt; color: #4A5876;
+            display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo"><div class="marca">sem<span>/</span>atalhos</div><div class="selo">amostra grátis</div></div>
+  <h1>Depurar sem IA: <span class="marcado">o método</span> que resolve a maioria dos bugs</h1>
+  <p class="sub">As primeiras páginas do Dev Raiz, um pacote com 5 guias para programar sem depender de IA. Do jeito que estão no material completo.</p>
+  <div class="folha">
+    <h2>Nesta amostra</h2>
+    <ul>
+      <li>Como usar o material, para quem ele é e o que instalar</li>
+      <li>O método em 5 passos para investigar um erro</li>
+      <li>Anatomia de uma exceção: tipo, mensagem e stack trace</li>
+      <li>As exceções mais comuns e o que verificar primeiro</li>
+      <li>O depurador: as ferramentas que resolvem a maioria dos casos</li>
+      <li>Logs, o depurador de quem está em produção</li>
+      <li>O que fazer quando nada parece funcionar</li>
+    </ul>
+  </div>
+  <p class="nota">Leia com o editor aberto. E com a IA desligada.</p>
+  <div class="rodape"><b>@sematalhos.dev</b><span>sematalhos.dev.br</span></div>
+</body>
+</html>

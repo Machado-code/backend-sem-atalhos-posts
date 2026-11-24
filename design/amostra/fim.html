@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 612pt 792pt; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 612pt; height: 792pt; }
+  body {
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 1.5pt, transparent 1.5pt),
+      linear-gradient(90deg, #DDE6EE 1.5pt, transparent 1.5pt);
+    background-size: 30pt 30pt;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+    padding: 64pt 60pt 56pt; display: flex; flex-direction: column;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .topo { display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 15pt; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .selo { font-size: 11pt; color: #4A5876; }
+  h1 { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 28pt;
+       line-height: 1.15; letter-spacing: -0.8pt; margin-top: 56pt; }
+  .sub { font-size: 13.5pt; line-height: 1.5; margin-top: 16pt; }
+  table { margin-top: 26pt; width: 100%; border-collapse: collapse; background: #FFFFFF;
+          border: 2pt solid #16233F; font-size: 12pt; }
+  td { padding: 9pt 14pt; border-top: 1pt solid #DDE6EE; vertical-align: top; }
+  tr:first-child td { border-top: none; }
+  td.g { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; white-space: nowrap; width: 1%; }
+  .preco { margin-top: 30pt; display: flex; align-items: baseline; gap: 16pt; }
+  .valor { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 30pt; }
+  .cond { font-size: 12.5pt; color: #4A5876; line-height: 1.4; }
+  .link { margin-top: 18pt; font-family: "DejaVu Sans Mono", monospace; font-size: 17pt; font-weight: 700; }
+  .link a { color: #16233F; text-decoration: none;
+            background: linear-gradient(transparent 55%, #FFE066 55%, #FFE066 92%, transparent 92%); padding: 0 3pt; }
+  .nota { margin-top: 20pt; font-style: italic; color: #D7263D; font-size: 13pt; line-height: 1.4; }
+  .rodape { margin-top: auto; font-family: "DejaVu Sans Mono", monospace; font-size: 11pt; color: #4A5876;
+            display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo"><div class="marca">sem<span>/</span>atalhos</div><div class="selo">fim da amostra</div></div>
+  <h1>A amostra para aqui. O Guia 1 continua.</h1>
+  <p class="sub">Logo depois vem a caça a 10 bugs reais, com gabarito comentado e projetos para rodar. E mais quatro guias:</p>
+  <table>
+    <tr><td class="g">Guia 1</td><td>Debugging sem IA: o método desta amostra e a caça aos 10 bugs</td></tr>
+    <tr><td class="g">Guia 2</td><td>API REST em .NET do zero, commit a commit</td></tr>
+    <tr><td class="g">Guia 3</td><td>SQL na mão: consultas, JOINs, índices e desempenho</td></tr>
+    <tr><td class="g">Guia 4</td><td>Servidor HTTP do zero: como a web funciona por baixo</td></tr>
+    <tr><td class="g">Guia 5</td><td>Treino para entrevista: lógica e estruturas de dados com testes</td></tr>
+  </table>
+  <div class="preco">
+    <div class="valor">R$ 47</div>
+    <div class="cond">Pagamento único. PDF de 82 páginas + projetos .NET.<br>7 dias de garantia pela Kiwify.</div>
+  </div>
+  <p class="link"><a href="https://sematalhos.dev.br">sematalhos.dev.br</a></p>
+  <p class="nota">Quem está na lista recebe por e-mail o cupom da semana de lançamento.</p>
+  <div class="rodape"><b>@sematalhos.dev</b><span>C#, .NET e SQL</span></div>
+</body>
+</html>
