@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!--
+  Reels "cronômetro do bug" (1080x1920, sem voz).
+  A tela é desenhada por render(t), com t em segundos; scripts/filmar_reels.py
+  chama render() quadro a quadro e grava o MP4, e scripts/som_reels.py põe os
+  efeitos sonoros (eventosSom). Para outro desafio, troque só o bloco
+  "Conteúdo do Reels" no script. Versão do LinkedIn: <caminho>.html?canal=linkedin.
+-->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1920px; overflow: hidden; position: relative;
+    background-color: #F5F7F6;
+    background-image:
+      linear-gradient(#DDE6EE 2px, transparent 2px),
+      linear-gradient(90deg, #DDE6EE 2px, transparent 2px);
+    background-size: 54px 54px;
+    color: #16233F; font-family: "DejaVu Serif", Georgia, serif;
+  }
+  .topo { position: absolute; left: 60px; right: 60px; top: 100px;
+          display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "DejaVu Sans Mono", monospace; font-size: 32px; }
+  .marca { font-weight: 700; }
+  .marca span { color: #D7263D; }
+  .quadro { color: #4A5876; font-size: 28px; }
+
+  h1 { position: absolute; left: 60px; right: 60px; top: 200px;
+       font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 80px;
+       line-height: 1.1; letter-spacing: -2px; }
+  .linha2 { position: absolute; left: 60px; right: 60px; top: 405px;
+            display: flex; justify-content: space-between; align-items: center; }
+  .sub { font-size: 38px; color: #4A5876; }
+  .crono { font-family: "DejaVu Sans Mono", monospace; font-weight: 700; font-size: 40px;
+           border: 4px solid #D7263D; color: #D7263D; border-radius: 10px; padding: 6px 18px;
+           display: flex; align-items: center; gap: 14px; background: #FFFFFF; white-space: nowrap; }
+  .crono i { width: 18px; height: 18px; border-radius: 50%; background: #D7263D; display: block; }
+  .crono.parado { background: #D7263D; color: #FFFFFF; }
+  .crono.parado i { background: #FFFFFF; }
+
+  .editor { position: absolute; left: 60px; right: 60px; top: 515px; height: 500px;
+            background: #FFFFFF; border: 4px solid #16233F; border-radius: 14px; overflow: hidden; }
+  .aba { height: 62px; border-bottom: 3px solid #16233F; display: flex; align-items: center;
+         padding: 0 26px; font-family: "DejaVu Sans Mono", monospace; font-size: 28px; gap: 18px; }
+  .aba b { font-weight: 700; }
+  .aba span { color: #4A5876; }
+  .codigo { position: relative; padding: 22px 0 0 0; font-family: "DejaVu Sans Mono", monospace;
+            font-size: 35px; line-height: 60px; }
+  .ln { position: relative; display: flex; height: 60px; white-space: pre; }
+  .ln.atual { background: #FFF3B8; }
+  .gut { width: 92px; text-align: right; padding-right: 22px; color: #9AA6BC; position: relative; }
+  .bp { position: absolute; left: 10px; top: 17px; width: 26px; height: 26px; border-radius: 50%;
+        background: #D7263D; }
+  .k { color: #7A3E9D; } .t { color: #1F6F8B; } .n { color: #B5530A; } .s { color: #2F7A3B; }
+  .cursor { display: inline-block; width: 3px; height: 40px; background: #16233F; vertical-align: -8px; }
+  .mt { background: #FFE066; }
+  .watch { position: absolute; left: 150px; font-family: "DejaVu Sans Mono", monospace;
+           font-size: 30px; background: #16233F; color: #F5F7F6; border-radius: 10px;
+           padding: 10px 20px; white-space: pre; }
+  .watch b { color: #FFE066; }
+  svg.circulo { position: absolute; overflow: visible; pointer-events: none; }
+  svg.circulo ellipse { fill: none; stroke: #D7263D; stroke-width: 5; stroke-linecap: round; }
+
+  .terminal { position: absolute; left: 60px; right: 60px; top: 1045px; height: 200px;
+              background: #16233F; color: #F5F7F6; border-radius: 14px; padding: 26px 32px;
+              font-family: "DejaVu Sans Mono", monospace; font-size: 34px; line-height: 52px; white-space: pre; }
+  .terminal .p { color: #9AA6BC; }
+  .terminal .ruim { background: #FFE066; color: #16233F; padding: 0 6px; }
+  .terminal .bom { color: #FFE066; font-weight: 700; }
+  .terminal .ok { color: #FFFFFF; background: #D7263D; border-radius: 6px; padding: 0 10px; margin-left: 16px; }
+
+  .legenda { position: absolute; left: 60px; width: 880px; top: 1300px;
+             font-size: 54px; line-height: 1.3; font-weight: 700; }
+  .legenda .mt { padding: 0 6px; }
+
+  .fim { position: absolute; left: 60px; right: 60px; top: 515px; height: 730px;
+         background: #FFFFFF; border: 4px solid #16233F; border-radius: 14px;
+         padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .fim h2 { font-family: "DejaVu Sans Mono", monospace; font-size: 84px; line-height: 1.1; letter-spacing: -2px; }
+  .fim h2 span { color: #D7263D; }
+  .fim p { font-size: 46px; line-height: 1.35; margin-top: 48px; }
+  .fim p b { background: #FFE066; padding: 0 8px; font-family: "DejaVu Sans Mono", monospace; }
+
+  .rodape { position: absolute; left: 60px; right: 60px; top: 1560px;
+            font-family: "DejaVu Sans Mono", monospace; font-size: 30px; color: #4A5876;
+            display: flex; justify-content: space-between; }
+  .rodape b { color: #16233F; }
+</style>
+</head>
+<body>
+  <div class="topo">
+    <div class="marca">sem<span>/</span>atalhos</div>
+    <div class="quadro">debug sem IA</div>
+  </div>
+
+  <h1 id="titulo"></h1>
+  <div class="linha2">
+    <p class="sub" id="sub"></p>
+    <div class="crono" id="crono"><i></i><span id="crono-txt">00:00</span></div>
+  </div>
+
+  <div class="editor" id="editor">
+    <div class="aba"><b id="arquivo"></b><span id="origem"></span></div>
+    <div class="codigo" id="codigo"></div>
+  </div>
+
+  <div class="terminal" id="terminal"></div>
+
+  <p class="legenda" id="legenda"></p>
+
+  <div class="fim" id="fim" style="display:none">
+    <h2>Sem IA.<br><span>Só o método.</span></h2>
+    <p id="chamada"></p>
+  </div>
+
+  <div class="rodape"><b>@sematalhos.dev</b><span>C#, .NET e SQL</span></div>
+
+<script>
+// ===== Conteúdo do Reels: troque daqui até "fim do conteúdo" =====
+const TITULO = "Compilou, rodou<br>e mentiu.";
+const SUB = ["Ache o bug antes do cronômetro.", "E você, achou antes?"];   // antes / depois de achar
+const ARQUIVO = ["Program.cs", "gerado com IA"];
+const COMANDO = "dotnet run";
+const SAIDA_ERRADA = 'Aprovação: <span class="ruim">0%</span>';
+const SAIDA_CERTA = 'Aprovação: <span class="bom">72%</span><span class="ok">certo</span>';
+const WATCH = 'aprovados / inscritos  →  <b>0</b>';
+// Final: no Instagram a palavra dispara a DM do NicoChat; no LinkedIn não há automação.
+// Filme com "?canal=linkedin" no fim do caminho do HTML para a versão do LinkedIn.
+const CHAMADA = {
+  instagram: 'Comenta <b>AMOSTRA</b> que eu te mando no direct o método em 5 passos para achar bugs assim.',
+  linkedin: 'Quanto tempo você levou para achar? Conta nos comentários.',
+};
+// Código em tokens [classe, texto]; "x" marca a expressão que recebe o círculo.
+const CODIGO = [
+  [["k","int"],["","&#32;aprovados = "],["n","18"],["",";"]],
+  [["k","int"],["","&#32;inscritos = "],["n","25"],["",";"]],
+  [["k","double"],["","&#32;percentual ="]],
+  [["","    "],["x","aprovados / inscritos"],[""," * "],["n","100"],["",";"]],
+  [["t","Console"],["","."],["t","WriteLine"],["","("]],
+  [["","    "],["s","$\"Aprovação: {percentual}%\""],["",");"]],
+];
+const LINHA_BUG = 3;          // índice da linha com o bug
+const FIX = "(double)";       // texto inserido antes da expressão
+const LEGENDAS = [
+  [1.0, 6.6, "Código que a IA sugeriu. Parece <span class=\"mt\">certo</span>."],
+  [7.9, 9.7, "18 de 25 passaram. Era para dar <span class=\"mt\">72%</span>."],
+  [9.9, 13.0, "Breakpoint na conta: ela já sai <span class=\"mt\">0</span>."],
+  [13.1, 16.4, "int ÷ int dá int. O 0,72 vira <span class=\"mt\">0</span> antes do × 100."],
+  [16.6, 19.6, "Converte antes de dividir. Agora, <span class=\"mt\">72%</span>."],
+];
+const T = { digitaIni: 1.0, digitaFim: 6.4, run1: 6.7, saida1: 7.6, bp: 9.9, watch: 10.6,
+            circulo: 13.1, fixIni: 16.6, fixFim: 17.3, run2: 17.6, saida2: 18.3, fim: 19.8 };
+// ===== fim do conteúdo =====
+
+const CANAL = new URLSearchParams(location.search).get("canal") || "instagram";
+document.getElementById("titulo").innerHTML = TITULO;
+document.getElementById("arquivo").textContent = ARQUIVO[0];
+document.getElementById("origem").textContent = ARQUIVO[1];
+document.getElementById("chamada").innerHTML = CHAMADA[CANAL] || CHAMADA.instagram;
+
+function plain(s) { return s.replace(/&#32;/g, " "); }
+const TOTAL = CODIGO.reduce((a, l) => a + l.reduce((b, tk) => b + plain(tk[1]).length, 0), 0);
+function esc(s) { return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x, 0, 1), 3);
+
+function linhas(n, t) {
+  // n = caracteres visíveis
+  let resto = n, html = "", cursorFeito = false;
+  CODIGO.forEach((ln, i) => {
+    let conteudo = "";
+    for (const [cls, raw] of ln) {
+      let txt = plain(raw);
+      if (cls === "x" && t >= T.fixIni) {
+        const k = Math.round(clamp((t - T.fixIni) / (T.fixFim - T.fixIni), 0, 1) * FIX.length);
+        if (k > 0) conteudo += `<span class="mt"><span class="k">${esc(FIX.slice(0, k))}</span></span>`;
+      }
+      const vis = txt.slice(0, Math.max(0, resto));
+      resto -= txt.length;
+      if (!vis) continue;
+      const c = cls === "x" ? "" : cls;
+      conteudo += cls === "x" ? `<span id="expr">${esc(vis)}</span>` : (c ? `<span class="${c}">${esc(vis)}</span>` : esc(vis));
+    }
+    const digitando = n < TOTAL && !cursorFeito && resto <= 0;
+    let cur = "";
+    if (digitando) { cur = `<span class="cursor"></span>`; cursorFeito = true; }
+    const visivel = conteudo || digitando;
+    const atual = t >= T.bp && t < T.fixIni && i === LINHA_BUG;
+    const bp = t >= T.bp && i === LINHA_BUG ? `<i class="bp"></i>` : "";
+    html += `<div class="ln${atual ? " atual" : ""}"><span class="gut">${bp}${visivel || n >= TOTAL ? i + 1 : ""}</span><span>${conteudo}${cur}</span></div>`;
+  });
+  return html;
+}
+
+function render(t) {
+  // cronômetro
+  const parado = t >= T.saida2;
+  const seg = Math.floor(parado ? T.saida2 : t);
+  document.getElementById("crono-txt").textContent =
+    parado ? `achado em 00:${String(seg).padStart(2, "0")}` : `00:${String(seg).padStart(2, "0")}`;
+  document.getElementById("crono").className = "crono" + (parado ? " parado" : "");
+  document.getElementById("sub").textContent = parado ? SUB[1] : SUB[0];
+  document.querySelector("#crono i").style.opacity = parado || Math.floor(t * 2) % 2 === 0 ? 1 : 0.25;
+
+  // fim
+  const fim = t >= T.fim;
+  document.getElementById("fim").style.display = fim ? "flex" : "none";
+  if (fim) {
+    const a = ease((t - T.fim) / 0.5);
+    const el = document.getElementById("fim");
+    el.style.opacity = a; el.style.transform = `translateY(${(1 - a) * 40}px)`;
+  }
+  document.getElementById("editor").style.visibility = fim ? "hidden" : "visible";
+  document.getElementById("terminal").style.visibility = fim ? "hidden" : "visible";
+
+  // código
+  const n = t < T.digitaIni ? 0 : Math.floor(clamp((t - T.digitaIni) / (T.digitaFim - T.digitaIni), 0, 1) * TOTAL);
+  const cod = document.getElementById("codigo");
+  cod.innerHTML = linhas(n, t);
+  if (n === 0) cod.querySelector(".ln span:last-child").innerHTML =
+      Math.floor(t * 2) % 2 === 0 ? `<span class="cursor"></span>` : "";
+
+  // watch e círculo
+  const expr = document.getElementById("expr");
+  if (expr && t >= T.watch && t < T.fixIni) {
+    const r = expr.getBoundingClientRect(), c = cod.getBoundingClientRect();
+    const w = document.createElement("div");
+    w.className = "watch";
+    w.innerHTML = WATCH;
+    w.style.left = (r.left - c.left + 40) + "px";
+    w.style.top = (r.bottom - c.top + 14) + "px";
+    w.style.opacity = ease((t - T.watch) / 0.3);
+    cod.appendChild(w);
+  }
+  if (expr && t >= T.circulo && t < T.fixIni) {
+    const r = expr.getBoundingClientRect(), c = cod.getBoundingClientRect();
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "circulo");
+    const padX = 22, padY = 12;
+    svg.style.left = (r.left - c.left - padX) + "px"; svg.style.top = (r.top - c.top - padY + 4) + "px";
+    svg.setAttribute("width", r.width + 2 * padX); svg.setAttribute("height", r.height + 2 * padY);
+    const e = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+    const W = r.width + 2 * padX, H = r.height + 2 * padY;
+    e.setAttribute("cx", W / 2); e.setAttribute("cy", H / 2);
+    e.setAttribute("rx", W / 2 - 4); e.setAttribute("ry", H / 2 - 4);
+    e.setAttribute("transform", `rotate(-2 ${W / 2} ${H / 2})`);
+    e.setAttribute("pathLength", "1");
+    e.setAttribute("stroke-dasharray", "1"); e.setAttribute("stroke-dashoffset", String(1 - ease((t - T.circulo) / 0.7)));
+    svg.appendChild(e); cod.appendChild(svg);
+  }
+
+  // terminal
+  const term = document.getElementById("terminal");
+  const prompt = (t0) => {
+    const cmd = COMANDO;
+    const k = Math.floor(clamp((t - t0) / 0.6, 0, 1) * cmd.length);
+    return `<span class="p">$</span> ${cmd.slice(0, k)}`;
+  };
+  if (t < T.run1) term.innerHTML = `<span class="p">$</span>`;
+  else if (t < T.run2) term.innerHTML = prompt(T.run1) + (t >= T.saida1 ? `\n${SAIDA_ERRADA}` : "");
+  else term.innerHTML = prompt(T.run2) + (t >= T.saida2 ? `\n${SAIDA_CERTA}` : "");
+
+  // legenda
+  const leg = document.getElementById("legenda");
+  const atual = LEGENDAS.find(([a, b]) => t >= a && t < b);
+  if (atual && !fim) {
+    leg.innerHTML = atual[2];
+    const a = ease((t - atual[0]) / 0.25);
+    leg.style.opacity = a; leg.style.transform = `translateY(${(1 - a) * 18}px)`;
+  } else leg.innerHTML = "";
+}
+window.render = render;
+
+// Efeitos sonoros: [segundo, tipo]. scripts/som_reels.py sintetiza cada tipo.
+function eventosSom() {
+  const ev = [];
+  for (let i = 1; i <= TOTAL; i++) ev.push([T.digitaIni + i / TOTAL * (T.digitaFim - T.digitaIni), "tecla"]);
+  const cmd = COMANDO.length;
+  for (const t0 of [T.run1, T.run2]) {
+    for (let i = 1; i <= cmd; i++) ev.push([t0 + i / cmd * 0.6, "tecla"]);
+    ev.push([t0 + 0.7, "enter"]);
+  }
+  for (let i = 1; i <= FIX.length; i++) ev.push([T.fixIni + i / FIX.length * (T.fixFim - T.fixIni), "tecla"]);
+  for (let s = 1; s <= Math.floor(T.saida2); s++) ev.push([s, s % 2 ? "tique" : "taque"]);
+  ev.push([T.saida1, "erro"], [T.bp, "blip"], [T.watch, "blip"], [T.circulo, "risco"],
+          [T.saida2, "acerto"], [T.fim, "virada"]);
+  return ev.sort((a, b) => a[0] - b[0]);
+}
+window.eventosSom = eventosSom;
+render(0);
+</script>
+</body>
+</html>

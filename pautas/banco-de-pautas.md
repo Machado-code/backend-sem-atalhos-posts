@@ -31,9 +31,24 @@ Segunda:
 
 Quarta:
 - `Imagem`: a alternativa ou a linha certa destacada com marca-texto e a correção.
-- `Reels`: vídeo vertical de 15 a 25 s, sem voz: o código aparece, a linha com problema
-  é circulada em vermelho, a correção entra no lugar e a explicação vai em legendas
-  curtas na tela. Se o vídeo falhar, vira `Imagem` e a tarefa avisa.
+- `Reels` ("cronômetro do bug", aprovado em 26/11): vídeo vertical de 25 s, sem voz,
+  com efeitos sonoros. Prende porque a pessoa espera o resultado final: título fixo no
+  topo e um cronômetro correndo ("Ache o bug antes do cronômetro"); o código é
+  digitado, roda e mostra a saída errada; breakpoint e valor na tela; a linha com
+  problema é circulada em vermelho; a correção entra, roda de novo e sai o resultado
+  certo; o cronômetro para ("achado em 00:18", "E você, achou antes?"); tela final
+  "Sem IA. Só o método." com a chamada.
+  Modelo: `posts/modelos/reels-cronometro.html` (troque só o bloco "Conteúdo do
+  Reels") e o exemplo `posts/modelos/reels-cronometro.mp4`. Filmar:
+  `python3 scripts/filmar_reels.py <html> <mp4> 20.5 4.5`; som:
+  `python3 scripts/som_reels.py <html> <mp4> <mp4 final>` (sons sintetizados, sem
+  música de terceiros). Versão do LinkedIn: o mesmo HTML com `?canal=linkedin`, que
+  troca a chamada final por "Quanto tempo você levou para achar?".
+  Para desafios que não são bug (A–D, Qual você usaria?), o título e as legendas
+  mudam para "Responda antes do cronômetro"; o roteiro continua o mesmo.
+  Se o vídeo falhar, vira `Imagem` e a tarefa avisa.
+- Mistura: Reels na quarta das semanas pares (a partir da 2) e Imagem nas ímpares;
+  segunda continua imagem e sexta, carrossel ou post de venda.
 
 Sexta (dicas):
 - `Passo a passo`: um slide por passo.
@@ -77,6 +92,8 @@ grátis (automação do NicoChat). Para puxar esses comentários:
   "Quer as primeiras páginas do Dev Raiz? Comente AMOSTRA que eu te mando no direct."
 - Se a sexta for um post de venda (V), a chamada vai no post de quarta, porque a sexta
   já tem a chamada de compra.
+- Na semana com Reels, a chamada vai no Reels de quarta (tela final e legenda) e não
+  entra na sexta.
 - Nunca no post de segunda (os comentários ali são as respostas do desafio) e nunca no
   LinkedIn (lá não há automação; quando a fase permitir link, use o do site).
 
@@ -104,7 +121,7 @@ de segunda mais próximo que ainda não saiu no último mês, e diz isso no resu
 | Semana | Desafio | Seg | Qua | Sex | Status |
 | --- | --- | --- | --- | --- | --- |
 | 1 | D00 | A–D | Imagem | T01 · Anatomia | agendado |
-| 2 | D01 | Parece certo | Imagem | V01 | pendente |
+| 2 | D01 | Parece certo | Reels | V01 | pendente |
 | 3 | D13 | PR | Imagem | V03 | pendente |
 | 4 | D17 | A–D | Reels | V05 | pendente |
 | 5 | D02 | Qual você usaria? | Imagem | T09 · Passo a passo | pendente |

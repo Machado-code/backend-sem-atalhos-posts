@@ -35,7 +35,8 @@ em até 30 dias, com o mínimo de trabalho manual.
 - Ritmo: 3 posts por semana por canal: Instagram às 19h, LinkedIn às 8h30 (mesmas
   imagens; texto do LinkedIn com um pouco mais de contexto; carrossel vai como PDF). Segunda: post interativo com o desafio
   (rodízio de formatos: A–D, PR, Parece certo, Qual você usaria?). Quarta: a resposta
-  (imagem ou Reels sem voz). Sexta: dica (carrossel) ou post de venda. Formatos e
+  (imagem nas semanas ímpares; Reels "cronômetro do bug" sem voz, com efeitos sonoros,
+  nas pares). Sexta: dica (carrossel) ou post de venda. Formatos e
   rodízio no banco de pautas. Horário revisto em 18/12 com dados reais.
 - Amostra grátis: `docs/amostra/dev-raiz-amostra-gratis.pdf` (capa e Guia 1 até a 1.6).
   Instagram: NicoChat (plano grátis, até 200 contatos) ligado ao @sematalhos.dev;
@@ -93,3 +94,7 @@ em até 30 dias, com o mínimo de trabalho manual.
   segunda, resposta em imagem na quarta e carrossel T01 (stack trace) na sexta.
 - 2026-11-24: amostra grátis no site; automações do NicoChat ativas no Instagram;
   "Comente AMOSTRA" entra uma vez por semana na legenda do Instagram (banco de pautas).
+- 2026-11-25: formulário da amostra no site (MailerLite, sem confirmação dupla).
+- 2026-11-26: Reels "cronômetro do bug" aprovado (sem voz, com efeitos sonoros
+  sintetizados): quarta das semanas pares, a partir da semana 2. Modelo e scripts em
+  `posts/modelos/reels-cronometro.*`, `scripts/filmar_reels.py` e `scripts/som_reels.py`.
