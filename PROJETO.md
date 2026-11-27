@@ -52,7 +52,11 @@ em até 30 dias, com o mínimo de trabalho manual.
   `inbox/AAAA-MM-DD-assunto.md` (modelo em `inbox/README.md`).
 - `outbox/`: respostas do escritório, com o MESMO nome do pedido.
 - `posts/AAAA-MM/`: textos (`.md`), fonte das imagens (`.html`) e imagens (`.png`).
-- Mudanças entram por pull request; o Matheus aprova o merge na `main`.
+- A conversa entre claude.ai e escritório (só arquivos `.md` em `inbox/` e `outbox/`) vai
+  direto na `main`, sem PR. Qualquer outra mudança entra por pull request (etiquetas
+  `revisar`, `ajustar`, `pronto-para-aprovo`) e só vai para a `main` com o "aprovo" do
+  Matheus, que recebe aviso no celular quando um PR fica pronto (tarefa "Revisar PRs do
+  escritório", dias úteis às 9h40 e 17h40). Detalhes em `ESCRITORIO.md`.
 
 ## Regras
 - Nada é publicado sem aprovação do Matheus.
