@@ -1,8 +1,8 @@
 # Ideia de formato: "a máquina" (Reels 3D sem voz)
 
 Status: **ideia**, compartilhada pelo projeto da Vorinn em 27/11/2026 a pedido do Matheus.
-A tarefa de domingo pode propor um teste junto com a semana, mas o formato só entra no
-rodízio do banco de pautas depois do ok dele.
+A tarefa de domingo não cria post neste formato antes do ok dele; no máximo sugere, em
+uma linha do resumo, qual pauta da semana caberia aqui.
 
 ## De onde veio
 Um Reel de outro perfil explicava um processo com uma animação 3D: uma máquina numa mesa
@@ -34,6 +34,12 @@ ensinam.
 - **Post de venda do Dev Raiz:** os 5 guias como 5 cartuchos encaixando na "base do
   dev"; fecha com "Sem IA. Só o método." e a chamada.
 
+## Onde entraria
+O Reels de quarta já tem o "cronômetro do bug" (aprovado em 26/11), que serve para bugs e
+saídas erradas. "A máquina" serve para conceitos com ordem ou partes, então o lugar
+natural é a sexta: versão em Reels de um "Anatomia" ou "Passo a passo", ou um post de
+venda (V). Mantém Reels e imagem misturados, sem dois Reels iguais na mesma semana.
+
 ## Como adaptar ao Sem Atalhos
 - Visual da marca: fundo papel quadriculado claro (#F5F7F6), azul-marinho (#16233F),
   vermelho (#D7263D) para destaque, serifada como nos outros modelos. A palavra-chave da
@@ -42,6 +48,10 @@ ensinam.
   flutuante pode mostrar a linha de código.
 - O `scripts/filmar_reels.py` daqui chama `window.render(t)`; o modelo da Vorinn expõe
   `window.seek(t)`. Basta acrescentar `window.render = window.seek;` no fim do HTML.
+- Para os efeitos sonoros do `scripts/som_reels.py`, o HTML também precisa expor
+  `window.eventosSom()`, com a lista `[segundo, tipo]` (modelo em
+  `posts/modelos/reels-cronometro.html`). Um "encaixe" de cartucho pode usar o tipo
+  `enter`, e o resultado final, `acerto`.
 - Sem voz e sem avatar, como já é regra aqui.
 
 ## Lições que já custaram retrabalho na Vorinn
