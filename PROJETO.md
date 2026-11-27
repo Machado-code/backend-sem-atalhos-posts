@@ -46,6 +46,9 @@ em até 30 dias, com o mínimo de trabalho manual.
   Raiz", automação de entrega desligada até o formulário entrar no site).
 - Pautas: `pautas/banco-de-pautas.md` (fila semanal, desafios com resposta, dicas e
   posts de venda). A tarefa semanal segue a fila e atualiza o status.
+- Ideia de formato em avaliação (27/11): Reels "a máquina", em 3D e sem voz, vindo do
+  projeto da Vorinn. Detalhes em `pautas/ideia-formato-maquina.md`; só entra no rodízio
+  com o ok do Matheus.
 
 ## Como nos comunicamos
 - `inbox/`: pedidos para o escritório. Um arquivo por pedido:
